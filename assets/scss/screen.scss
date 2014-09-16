@@ -1,0 +1,47 @@
+/*================================================================================
+
+	Application: Grand Meetup 2014 - Flash Talk
+	Description:
+	Author: Adam Becker
+	Author URI: http://adambbecker.com
+	License: GNU General Public License version 3.0
+	License URI: http://www.gnu.org/licenses/gpl-3.0.html
+	Version: 0.0.0
+
+	All files, unless otherwise stated, are released under the GNU General Public
+	License version 3.0 (http://www.gnu.org/licenses/gpl-3.0.html)
+
+==================================================================================
+
+	0.  CSS Reset
+	1.  General Set Up & Type
+	2.  Specific Elements
+
+==================================================================================*/
+
+@import "vars.scss";
+@import "mixins.scss";
+
+/*--------------------------------------------------------------------------------*/
+/*	0.  CSS Reset - insert your preferred reset below
+/*--------------------------------------------------------------------------------*/
+@import "reset.scss";
+
+
+/*--------------------------------------------------------------------------------*/
+/*	1.  General Set Up
+/*--------------------------------------------------------------------------------*/
+@import "base.scss";
+@import "general.scss";
+
+
+/*--------------------------------------------------------------------------------*/
+/*	2.  Specific Elements
+/*--------------------------------------------------------------------------------*/
+@import "dots.scss";
+@import "intro.scss";
+@import "ToC.scss";
+@import "principles.scss";
+@import "example_nav.scss";
+@import "example_trans.scss";
+@import "example-desc.scss";

@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html class="no-js" ng-app="flashTalk">
+  <head>
+      <meta charset="utf-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <title>Grand Meetup 2014 - Flash Talk</title>
+      <meta name="description" content="">
+      <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0">
+      <link rel="stylesheet" href="assets/css/screen.css">
+      <script src="assets/js/modernizr.js"></script>
+  </head>
+  <body ng-controller="uiLifeCtrl" class="passed-intro-{{ seenIntro }} animate-intro-{{ animIntro }} act-uiCat-{{ actUICat }} act-uiSec-{{ actUISection }} ui-trans-step-{{ exampleTrans.step }}">
+    <canvas id="ui-trans-example-confetti"></canvas>
+    <section id="main-dots" class="actCat-hover-{{ actCatHover }}">
+      <div ng-repeat="dot in dots" class="dot-con">
+        <div class="dot-con__dot" style="{{ animDelayPrefixed }}: {{ dot.animationDelay }}s;"></div>
+      </div>
+    </section>
+    <section id="main-principles" class="anim-safe-{{ safeAnimPrinciples }}">
+      <div class="bg"></div>
+      <h3 ng-repeat="principle in currAnimPrinciples" class="main-principles__principle" principle-finish-repeat>{{ principle.name }}</h3>
+    </section>
+    <section id="ui-nav-example" class="vis-{{ actUICat == 'nav' && actUISection == 'example' && safeAnimExample }}">
+      <div id="ui-nav-articles" class="ui-nav-pane">
+        <article ng-repeat="article in exampleNav.articles" ng-click="exampleNav.focusArticle( article )" class="ui-nav-article focused-{{ article.id == exampleNav.focusedArticle.id }}">
+          <h4 class="ui-nav-article__title">{{ article.title }}</h4>
+          <p class="ui-nav-article__excerpt">{{ article.excerpt }}</p>
+          <p class="ui-nav-article__excerpt"><em>Continue Reading &raquo;</em></p>
+        </article>
+      </div>
+      <div id="ui-nav-post-bg" class="ui-nav-pane vis-{{ exampleNav.focusedArticle.id != null }}"></div>
+      <div id="ui-nav-post" class="ui-nav-pane vis-{{ exampleNav.focusedArticle.id != null }}">
+        <div class="ui-nav-post__content">
+          <h2>{{ exampleNav.focusedArticle.title }}</h2>
+          <p>Aenean lacinia bibendum nulla sed consectetur. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor.</p>
+          <p>Vestibulum id ligula porta felis euismod semper. Maecenas sed diam eget risus varius blandit sit amet non magna. Integer posuere erat a ante venenatis dapibus posuere velit aliquet. Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Maecenas faucibus mollis interdum.</p>
+          <p>Nullam id dolor id nibh ultricies vehicula ut id elit. Nullam id dolor id nibh ultricies vehicula ut id elit. Cras mattis consectetur purus sit amet fermentum. Maecenas faucibus mollis interdum. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean lacinia bibendum nulla sed consectetur. Nullam id dolor id nibh ultricies vehicula ut id elit.</p>
+        </div>
+        <a ng-click="exampleNav.closePost()" class="ui-nav-post__close">&#8592;</a>
+      </div>
+    </section>
+    <section id="ui-trans-example" class="vis-{{ actUICat == 'trans' && actUISection == 'example' && safeAnimExample }}">
+      <div class="ui-trans-congrats">
+        <h3 class="ui-trans-msg">Congratulations! <br>You met your goal, <br>time to celebrate.</h3>
+      </div>
+      <div class="ui-trans-intro">
+        <h3 class="ui-trans-msg">You just completed your workout and ran 3.1 miles!</h3>
+        <button ng-click="exampleTrans.logIt()" class="ui-trans-intro-btn"><div class="btn-bg"></div><span class="logged-msg vis-{{ exampleTrans.logged }}">Logged</span>Log It</button>
+      </div>
+    </section>
+    <section id="main-example-desc">
+      <p class="main-example-desc__sup">{{ currExampleDesc.title }} Example</p>
+      <h2 class="main-example-desc__title" ng-bind-html="currExampleDesc.heading" style="border-color: {{ currExampleDesc.color }}"></h2>
+      <p class="main-example-desc__sup">Using Principles</p>
+      <ul class="main-example-desc__principles">
+        <li ng-repeat="examplePrinciple in currExampleDesc.principles">{{ examplePrinciple }}</li>
+      </ul>
+    </section>
+    <button id="principle-to-example" ng-click="setActUISec()" class="act-uiSec-nav vis-{{ showExampleButton }}">See Example &#8594;</button>
+    <button id="example-to-cat" ng-click="setActUISec()" class="act-uiSec-nav vis-{{ showReturnCatButton }}">&#8592; Return to Categories</button>
+    <section id="main-toc">
+      <h2 class="main-toc__title">UI Categories</h2>
+      <dl ng-repeat="uiCat in uiCats" ng-click="setActUICat( uiCat.slug );" ng-mouseenter="actCatMouseEnter(uiCat.slug)" ng-mouseleave="actCatMouseLeave()" class="main-toc__cat seen-cat-{{ uiCat.seenCat }}">
+        <dt class="main-toc__cat__title">{{ uiCat.title }}</dt>
+        <dd class="main-toc__cat__desc">{{ uiCat.desc }}</dd>
+      </dl>
+    </section>
+    <section id="main-intro">
+      <h1 id="fittext">The Illusion of UI Life</h1>
+      <p>Choice adaptations of Disney's <br><strong>"Twelve Basic Principles of Animation"</strong><br> for use on UI elements</p>
+      <p><small>by Adam Becker</small></p>
+      <button ng-click="seenIntro = true;">Get Started</button>
+    </section>
+    <script src="assets/js/lib.js"></script>
+    <script type="text/javascript" src="//use.typekit.net/rbv6ocy.js"></script>
+    <script type="text/javascript">
+      try {
+        Typekit.load({
+          active: function() {
+            window.fitText( document.getElementById("fittext"), 1.1 );
+          }
+        })
+      } catch(e) {}
+    </script>
+    <script src="assets/js/app.js"></script>
+  </body>
+</html>

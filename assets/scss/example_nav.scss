@@ -1,0 +1,110 @@
+//  ===== Exmaple_Nav.scss ===================================================
+//  Example for the navigation category
+//  ==========================================================================
+
+
+
+
+// ------------------------------
+// Nav Example - shared
+// ------------------------------
+#ui-nav-example,
+.ui-nav-pane {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  right: 0;
+}
+
+#ui-nav-example {
+  width: (2 / 5) * 100%;
+  transition: transform 0.8s cubic-bezier(0.215, 0.610, 0.355, 1.000);
+  transform: translateX(100%);
+  &.vis-true {
+    transform: translateX(0);
+  }
+}
+
+.ui-nav-pane {
+  left: 0;
+  background-color: white;
+  overflow-y: auto;
+  transition: transform 0.6s cubic-bezier(0.215, 0.610, 0.355, 1.000), opacity 0.6s ease-out;
+}
+
+
+// ------------------------------
+// Nav Example - Posts
+// ------------------------------
+.ui-nav-article {
+  padding: 5%;
+  border-bottom: solid 1px #C9C9C9;
+  transition: transform 0.6s cubic-bezier(0.215, 0.610, 0.355, 1.000);
+  &.focused-true {
+    transform: translateX(-20%);
+  }
+}
+
+.ui-nav-article__title {
+  color: #16222A;
+  font-size: (19.416 / $baseSize) * 1em;
+  font-weight: 700;
+  line-height: (27 / 19.416) * 1em;
+}
+
+.ui-nav-article__excerpt {
+  color: lighten(#16222A, 16%);
+  font-size: (13 / $baseSize) * 1em;
+  line-height: (19 / 13) * 1em;
+  margin-top: (2 / 13) * 1em;
+  em {
+    font-style: normal;
+    color: #2EACCB;
+  }
+}
+
+
+// ------------------------------
+// Nav Example - full article
+// ------------------------------
+#ui-nav-post-bg {
+  background-color: rgba(0, 0, 0, 0.6);
+  opacity: 0;
+  pointer-events: none;
+  &.vis-true {
+    opacity: 1;
+  }
+}
+
+#ui-nav-post {
+  transform: translateX(100%);
+  &.vis-true {
+    transform: translateX(0);
+  }
+  h2 {
+    color: #16222A;
+    font-size: (39.269 / $baseSize) * 1em;
+    font-weight: 400;
+    line-height: (52 / 39.269) * 1em;
+    padding-bottom: (15 / 39.269) * 1em;
+    margin-bottom: (15 / 39.269) * 1em;
+  }
+  p {
+    color: lighten(#16222A, 16%);
+    font-size: (18 / $baseSize) * 1em;
+    line-height: (25 / 18) * 1em;
+    margin-bottom: (25 / 18) * 1em;
+  }
+}
+
+.ui-nav-post__content {
+  padding: (68 / $baseSize) * 1em 7.5% 0;
+}
+
+.ui-nav-post__close {
+  position: absolute;
+  font-size: (24 / $baseSize) * 1em;
+  left: 7.5%;
+  top: (18 / 24) * 1em;
+  color: #B4BCC2;
+}

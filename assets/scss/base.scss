@@ -1,0 +1,26 @@
+//  ===== Base.scss ==========================================================
+//  Base elements
+//  ==========================================================================
+
+
+
+
+// ------------------------------
+// Base
+// ------------------------------
+html,
+body {
+  height: 100%;
+  overflow: hidden;
+}
+
+body {
+  // background-color: #1F232D;
+  // background-image: radial-gradient(75% 20%, ellipse farthest-corner, #435173, #1F232D 74%);
+  // background: linear-gradient(90deg, #16222A 10%, #3A6073 90%); /* W3C */
+  background-color: #16222A;
+  background-image: radial-gradient(75% 20%, ellipse farthest-corner, #3A6073, #16222A 74%);
+
+  font-family: "futura-pt", sans-serif;
+  color: white;
+}

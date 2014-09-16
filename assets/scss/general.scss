@@ -1,0 +1,47 @@
+//  ===== General.scss =======================================================
+//  General elements (used throughout app in no specific place)
+//  ==========================================================================
+
+
+
+
+// ---------------------------------
+// Button to navigate active UI sec
+// ---------------------------------
+.act-uiSec-nav {
+  position: absolute;
+  left: (93 / $baseSize) * 1rem;
+  bottom: (122 / $baseSize) * 1rem;
+  font-size: (18 / $baseSize) * 1em;
+  padding: (18 / 18) * 1em (32 / 18) * 1em;
+  margin-top: (64 / 18) * 1em;
+  //color: RGBA(33, 54, 66, 1);
+  font-family: "futura-pt", sans-serif;
+  color: white;
+  font-weight: 300;
+  // background-color: white;
+  background-color: RGBA(22, 34, 42, 0.6);
+  border: solid 1px white;
+  border-radius: (10 / 18) * 1em;
+  opacity: 0;
+  transition: transform 0.6s ease, opacity 0.6s ease-out;
+  &:focus {
+    outline: none;
+  }
+}
+
+#principle-to-example {
+  transform: translateY(25%);
+  &.vis-true {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+#example-to-cat {
+  transform: translateY(-25%);
+  &.vis-true {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

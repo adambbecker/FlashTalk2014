@@ -1,0 +1,82 @@
+//  ===== Intro.scss ==========================================================
+//  Introduction section (before talk begins)
+//  ==========================================================================
+
+
+
+
+$introTimingOut:    0.6s;
+$introEasingOut:    cubic-bezier(0.600, -0.280, 0.325, 0.925);
+
+// ------------------------------
+// Intro - main
+// ------------------------------
+#main-intro {
+  // display: none;
+  position: absolute;
+  top: 50%;
+  left: 0;
+  right: 0;
+  transform: translateY(-50%);
+  padding: 15% 15%;
+  text-align: center;
+  background-image: radial-gradient(center center, 60% 50%, RGBA(22, 34, 42, 0.8), RGBA(22, 34, 42, 0));
+  transition: opacity 2s ease-out;
+  h1,
+  p,
+  button {
+    transition: transform $introTimingOut $introEasingOut, opacity $introTimingOut ease-out;
+  }
+  h1 {
+    font-size: (34 / $baseSize) * 1em;
+    font-weight: 500;
+    text-transform: uppercase;
+    transition-delay: 0.4s;
+  }
+  p {
+    color: rgba(255, 255, 255, 0.6);
+    font-size: (26 / $baseSize) * 1em;
+    font-weight: 400;
+    margin-top: (18 / 26) * 1em;
+    padding: 0 10%;
+    transition-delay: 0.2s;
+    strong {
+      color: white;
+      font-weight: 500;
+    }
+    em {
+      font-weight: 300;
+    }
+    small {
+      color: white;
+      font-size: 0.8em;
+    }
+  }
+  button {
+    font-size: (18 / $baseSize) * 1em;
+    padding: (18 / 18) * 1em (46 / 18) * 1em;
+    margin-top: (64 / 18) * 1em;
+    //color: RGBA(33, 54, 66, 1);
+    font-family: "futura-pt", sans-serif;
+    color: white;
+    font-weight: 700;
+    text-transform: uppercase;
+    // background-color: white;
+    background-color: RGBA(22, 34, 42, 0.6);
+    border: solid 1px white;
+    border-radius: (10 / 18) * 1em;
+    &:focus {
+      outline: none;
+    }
+  }
+  .passed-intro-true & {
+    opacity: 0;
+    pointer-events: none;
+    h1,
+    p,
+    button {
+      transform: translateY((352 / $baseSize) * 1rem);
+      opacity: 0;
+    }
+  }
+}

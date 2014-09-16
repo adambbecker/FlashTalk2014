@@ -1,0 +1,9 @@
+{
+  "name": "grand-meetup-2014-flash-talk",
+  "version": "0.0.0",
+  "dependencies": {},
+  "devDependencies": {
+    "angular-sanitize": "~1.2.24",
+    "angular": "~1.2.24"
+  }
+}

@@ -1,0 +1,63 @@
+//  ===== Principles.scss ====================================================
+//  Text that describes animation principles
+//  ==========================================================================
+
+
+$principleEasing: ease;
+$principleTiming: 0.6s;
+
+
+// ------------------------------
+// Main principle container
+// ------------------------------
+#main-principles {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: (1 / 2.25) * 100%;
+  padding-left: (93 / $baseSize) * 1em;
+  transition: opacity 0.8s ease-out;
+  .act-uiSec-example & {
+    opacity: 0;
+  }
+  .bg {
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    background-image: radial-gradient(center center, 50% 50%, RGBA(22, 34, 42, 0.4), RGBA(22, 34, 42, 0));
+    transition: opacity $principleTiming ease-out;
+    opacity: 0;
+  }
+  .act-uiCat-nav &,
+  .act-uiCat-trans & {
+    .bg {
+      opacity: 1;
+    }
+  }
+}
+
+.main-principles__principle {
+  font-size: (48 / $baseSize) * 1em;
+  font-weight: 300;
+  line-height: (170 / 48) * 1em;
+  transition: transform $principleTiming $principleEasing, opacity $principleTiming ease-out;
+  opacity: 0;
+  transform: translateY(25%);
+  &:nth-child(2) {
+    transition-delay: 2.2s;
+  }
+  &:nth-child(3) {
+    transition-delay: 2.8s;
+  }
+  .act-uiCat-nav .anim-safe-true &,
+  .act-uiCat-trans .anim-safe-true & {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
